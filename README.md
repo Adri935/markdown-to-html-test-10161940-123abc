@@ -14,3 +14,5 @@ The application automatically loads and converts the provided Markdown file. The
 ## License
 
 MIT
+
+Round 2: No code changes required.
