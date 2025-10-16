@@ -36,9 +36,32 @@ function decodeBase64ToText(b64) {
   }
 }
 
+// Tab switching functionality
+function setupTabs() {
+  const htmlTab = document.getElementById('tab-html');
+  const sourceTab = document.getElementById('tab-source');
+  const outputElement = document.getElementById('markdown-output');
+  const sourceElement = document.getElementById('markdown-source');
+  
+  htmlTab.addEventListener('click', () => {
+    htmlTab.classList.add('active');
+    sourceTab.classList.remove('active');
+    outputElement.style.display = 'block';
+    sourceElement.style.display = 'none';
+  });
+  
+  sourceTab.addEventListener('click', () => {
+    sourceTab.classList.add('active');
+    htmlTab.classList.remove('active');
+    sourceElement.style.display = 'block';
+    outputElement.style.display = 'none';
+  });
+}
+
 // Main function to process markdown
 async function processMarkdown() {
   const outputElement = document.getElementById('markdown-output');
+  const sourceElement = document.getElementById('markdown-source');
   
   try {
     // Get the markdown file from attachments
@@ -68,6 +91,9 @@ async function processMarkdown() {
       throw new Error('No content found in markdown file');
     }
     
+    // Store the original markdown content
+    sourceElement.textContent = markdownContent;
+    
     // Convert markdown to HTML using marked
     const htmlContent = marked.parse(markdownContent);
     
@@ -87,4 +113,7 @@ async function processMarkdown() {
 }
 
 // Initialize when the page loads
-document.addEventListener('DOMContentLoaded', processMarkdown);
+document.addEventListener('DOMContentLoaded', () => {
+  processMarkdown();
+  setupTabs();
+});
