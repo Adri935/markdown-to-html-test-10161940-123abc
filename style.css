@@ -29,8 +29,17 @@ main {
   margin-bottom: 2rem;
 }
 
-#markdown-output {
+#markdown-output, #markdown-source {
   min-height: 200px;
+}
+
+#markdown-source {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
 }
 
 .loading {
@@ -43,6 +52,33 @@ footer {
   text-align: center;
   color: #666;
   font-size: 0.9rem;
+}
+
+/* Tabs */
+#markdown-tabs {
+  margin-bottom: 1rem;
+}
+
+#markdown-tabs button {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-bottom: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  margin-right: 0.2rem;
+}
+
+#markdown-tabs button.active {
+  background-color: white;
+  border-bottom: 1px solid white;
+  position: relative;
+  bottom: -1px;
+  font-weight: bold;
+}
+
+#markdown-tabs button:hover:not(.active) {
+  background-color: #dee2e6;
 }
 
 /* Markdown content styles */
