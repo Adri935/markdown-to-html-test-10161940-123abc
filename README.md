@@ -9,7 +9,7 @@ A simple web application that converts Markdown input to HTML using the marked l
 
 ## Usage
 
-The application automatically loads and converts the provided Markdown file. The converted HTML is displayed in the main content area.
+The application automatically loads and converts the provided Markdown file. The converted HTML is displayed in the main content area. You can switch between the rendered HTML view and the original Markdown source using the tabs.
 
 ## License
 
